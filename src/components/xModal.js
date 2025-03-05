@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, Box, Button, TextField } from "@mui/material";
+import { Modal, Box, Button, TextField, Backdrop } from "@mui/material";
 
 export default function XModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +52,13 @@ export default function XModal() {
   return (
     <div className="app">
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
-      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{ timeout: 500 }}
+      >
         <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, bgcolor: 'background.paper', p: 4, boxShadow: 24, borderRadius: 2 }}>
           <form onSubmit={handleSubmit}>
             <TextField id="username" label="Username" fullWidth margin="normal" value={formData.username} onChange={handleChange} required />
