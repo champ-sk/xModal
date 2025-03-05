@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Modal, Box, Button, TextField } from "@mui/material";
 
 export default function XModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,36 +49,20 @@ export default function XModal() {
     setIsOpen(false);
   };
 
-  const handleCloseModal = (e) => {
-    if (e.target.classList.contains("modal")) {
-      setIsOpen(false);
-    }
-  };
-
   return (
     <div className="app">
-      <button onClick={() => setIsOpen(true)}>Open Form</button>
-      {isOpen && (
-        <div className="modal" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <form onSubmit={handleSubmit}>
-              <label>Username:</label>
-              <input id="username" type="text" value={formData.username} onChange={handleChange} required />
-              <br />
-              <label>Email:</label>
-              <input id="email" type="email" value={formData.email} onChange={handleChange} required />
-              <br />
-              <label>Date of Birth:</label>
-              <input id="dob" type="date" value={formData.dob} onChange={handleChange} required />
-              <br />
-              <label>Phone Number:</label>
-              <input id="phone" type="tel" value={formData.phone} onChange={handleChange} required />
-              <br />
-              <button type="submit" className="submit-button">Submit</button>
-            </form>
-          </div>
-        </div>
-      )}
+      <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, bgcolor: 'background.paper', p: 4, boxShadow: 24, borderRadius: 2 }}>
+          <form onSubmit={handleSubmit}>
+            <TextField id="username" label="Username" fullWidth margin="normal" value={formData.username} onChange={handleChange} required />
+            <TextField id="email" label="Email" fullWidth margin="normal" type="email" value={formData.email} onChange={handleChange} required />
+            <TextField id="dob" label="Date of Birth" fullWidth margin="normal" type="date" InputLabelProps={{ shrink: true }} value={formData.dob} onChange={handleChange} required />
+            <TextField id="phone" label="Phone Number" fullWidth margin="normal" type="tel" value={formData.phone} onChange={handleChange} required />
+            <Button type="submit" variant="contained" className="submit-button" fullWidth sx={{ mt: 2 }}>Submit</Button>
+          </form>
+        </Box>
+      </Modal>
     </div>
   );
 }
