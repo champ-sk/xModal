@@ -50,7 +50,7 @@ export default function XModal() {
 
   const handleCloseModal = (e) => {
     if (e.target.classList.contains("modal")) {
-      setTimeout(() => setIsOpen(false), 50); // Ensures Cypress detects closure
+      setIsOpen(false);
     }
   };
 
