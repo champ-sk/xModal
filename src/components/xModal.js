@@ -30,14 +30,17 @@ export default function XModal() {
       return;
     }
 
-    if (!email.includes("@")) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
       alert("Invalid email. Please check your email address.");
       return;
     }
-    if (!/^[0-9]{10}$/.test(phone)) {
+
+    if (!/^\d{10}$/.test(phone)) {
       alert("Invalid phone number. Please enter a 10-digit phone number.");
       return;
     }
+    
     const dobDate = new Date(dob);
     const today = new Date();
     if (isNaN(dobDate) || dobDate > today) {
@@ -54,7 +57,7 @@ export default function XModal() {
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
       <Modal
         open={isOpen}
-        onClose={() => setIsOpen(false)}
+        onClose={(event, reason) => reason === 'backdropClick' && setIsOpen(false)}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{ timeout: 500 }}
