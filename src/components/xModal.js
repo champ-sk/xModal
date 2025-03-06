@@ -48,6 +48,7 @@ export default function XModal() {
 
   return (
     <div className="modal">
+          <div className="modal-content">
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
       <Modal
         open={isOpen}
@@ -80,6 +81,7 @@ export default function XModal() {
           </Box>
        
       </Modal>
+      </div>
     </div>
   );
 }
