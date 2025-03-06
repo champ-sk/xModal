@@ -47,38 +47,36 @@ export default function XModal() {
   };
 
   return (
-    <div className="modal">
+    <div>
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
       <Modal
         open={isOpen}
-        onClose={handleClose} // Ensure modal closes on backdrop click
+        onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{ timeout: 500 }}
       >
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}> 
-          <Box
-            sx={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: 400,
-              bgcolor: "background.paper",
-              p: 4,
-              boxShadow: 24,
-              borderRadius: 2,
-            }}
-          >
-            <form onSubmit={handleSubmit}>
-              <TextField id="username" label="Username" fullWidth margin="normal" value={formData.username} onChange={handleChange} required />
-              <TextField id="email" label="Email" fullWidth margin="normal" type="email" value={formData.email} onChange={handleChange} required />
-              <TextField id="dob" label="Date of Birth" fullWidth margin="normal" type="date" InputLabelProps={{ shrink: true }} value={formData.dob} onChange={handleChange} required />
-              <TextField id="phone" label="Phone Number" fullWidth margin="normal" type="tel" value={formData.phone} onChange={handleChange} required />
-              <Button type="submit" variant="contained" className="submit-button" fullWidth sx={{ mt: 2 }}>Submit</Button>
-            </form>
-          </Box>
-        </div>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 400,
+            bgcolor: "background.paper",
+            p: 4,
+            boxShadow: 24,
+            borderRadius: 2,
+          }}
+        >
+          <form onSubmit={handleSubmit}>
+            <TextField id="username" label="Username" fullWidth margin="normal" value={formData.username} onChange={handleChange} required />
+            <TextField id="email" label="Email" fullWidth margin="normal" type="email" value={formData.email} onChange={handleChange} required />
+            <TextField id="dob" label="Date of Birth" fullWidth margin="normal" type="date" InputLabelProps={{ shrink: true }} value={formData.dob} onChange={handleChange} required />
+            <TextField id="phone" label="Phone Number" fullWidth margin="normal" type="tel" value={formData.phone} onChange={handleChange} required />
+            <Button type="submit" variant="contained" className="submit-button" fullWidth sx={{ mt: 2 }}>Submit</Button>
+          </form>
+        </Box>
       </Modal>
     </div>
   );
