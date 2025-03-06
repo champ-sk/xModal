@@ -52,8 +52,17 @@ export default function XModal() {
     setIsOpen(false);
   };
 
+
+
+
+
+// jsx code for form creation
+
+
+
   return (
-    <div className="app">
+    <div className="modal">
+      <div className="modal-content">
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
       <Modal
         open={isOpen}
@@ -72,6 +81,7 @@ export default function XModal() {
           </form>
         </Box>
       </Modal>
+    </div>
     </div>
   );
 }
