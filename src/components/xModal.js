@@ -40,19 +40,23 @@ export default function XModal() {
     setIsOpen(false);
   };
 
+  const handleClose = (event, reason) => {
+    if (reason === "backdropClick") {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div className="modal">
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
       <Modal
         open={isOpen}
-        onClose={(event, reason) => {
-          if (reason === "backdropClick") setIsOpen(false);
-        }}
+        onClose={handleClose} // Ensure modal closes on backdrop click
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{ timeout: 500 }}
       >
-        <div className="modal-content">
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}> 
           <Box
             sx={{
               position: "absolute",
