@@ -57,7 +57,7 @@ export default function XModal() {
         BackdropProps={{ timeout: 500 }}
       >
         
-          <Box className="modal-content" onClick={(e) => e.stopPropagation()}
+          <Box
             sx={{
               position: "absolute",
               top: "50%",
