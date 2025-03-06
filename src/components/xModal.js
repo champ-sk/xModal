@@ -56,7 +56,7 @@ export default function XModal() {
         BackdropComponent={Backdrop}
         BackdropProps={{ timeout: 500 }}
       >
-       
+        <div className="modal-content" > 
           <Box
             sx={{
               position: "absolute",
@@ -78,7 +78,7 @@ export default function XModal() {
               <Button type="submit" variant="contained" className="submit-button" fullWidth sx={{ mt: 2 }}>Submit</Button>
             </form>
           </Box>
-       
+        </div>
       </Modal>
     </div>
   );
