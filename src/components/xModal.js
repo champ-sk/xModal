@@ -49,7 +49,6 @@ export default function XModal() {
   return (
     <div className="modal">
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
-      <div className="modal-content" > 
       <Modal
         open={isOpen}
         onClose={handleClose} // Ensure modal closes on backdrop click
@@ -57,7 +56,7 @@ export default function XModal() {
         BackdropComponent={Backdrop}
         BackdropProps={{ timeout: 500 }}
       >
-        
+        <div className="modal-content" > 
           <Box
             sx={{
               position: "absolute",
@@ -79,9 +78,8 @@ export default function XModal() {
               <Button type="submit" variant="contained" className="submit-button" fullWidth sx={{ mt: 2 }}>Submit</Button>
             </form>
           </Box>
-        
+        </div>
       </Modal>
-      </div>
     </div>
   );
 }
