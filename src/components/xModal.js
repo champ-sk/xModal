@@ -47,7 +47,7 @@ export default function XModal() {
   };
 
   return (
-    <div className="modal">
+    <div >
       <Button variant="contained" onClick={() => setIsOpen(true)}>Open Form</Button>
       <Modal
         open={isOpen}
@@ -56,6 +56,7 @@ export default function XModal() {
         BackdropComponent={Backdrop}
         BackdropProps={{ timeout: 500 }}
       >
+        <div className="modal">
         <div className="modal-content" > 
           <Box
             sx={{
@@ -78,6 +79,7 @@ export default function XModal() {
               <Button type="submit" variant="contained" className="submit-button" fullWidth sx={{ mt: 2 }}>Submit</Button>
             </form>
           </Box>
+        </div>
         </div>
       </Modal>
     </div>
