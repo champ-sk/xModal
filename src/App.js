@@ -38,7 +38,7 @@ function App() {
       <button onClick={clickHandler}>Open Form</button>
 
       {isOpen && (
-        <div className="modal-backdrop" onClick={closeHandler}>
+        <div className="modal modal-backdrop" onClick={closeHandler}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <form onSubmit={submitHandler}>
               <h2>Fill Details</h2>
@@ -55,7 +55,7 @@ function App() {
 
               <div className="input-group">
                 <label htmlFor="phoneNo">Phone Number:</label>
-                <input type="tel" name="phoneNo" id="phoneNo" pattern="[0-9]{10}" required />
+                <input type="tel" name="phoneNo" id="phone" pattern="[0-9]{10}" required />
               </div>
 
               <div className="input-group">
