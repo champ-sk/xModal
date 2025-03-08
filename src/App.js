@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="App ">
       <h1>User Details Modal</h1>
-      <button onClick={clickHandler}>Open Form</button>
+   
 
       {isOpen && (
   <div className="modal modal-backdrop" onClick={closeHandler}>
@@ -71,6 +71,7 @@ function App() {
     </div>
   </div>
 )}
+   <button onClick={clickHandler}>Open Form</button>
 
     </div>
   );
