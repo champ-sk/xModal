@@ -9,10 +9,10 @@ function App() {
   };
 
   const closeHandler = (e) => {
-    if (e.target.classList.contains("modal-backdrop")) {
+    if (e.target.classList.contains("modal-backdrop") || e.target.classList.contains("close-button")) {
       setIsOpen(false);
     }
-  }
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
