@@ -9,10 +9,10 @@ function App() {
   };
 
   const closeHandler = (e) => {
-    if (e.target.className === "modal-backdrop") {
+    if (e.target.classList.contains("modal-backdrop")) {
       setIsOpen(false);
     }
-  };
+  }
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App ">
       <h1>User Details Modal</h1>
       <button onClick={clickHandler}>Open Form</button>
 
