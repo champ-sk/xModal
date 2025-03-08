@@ -4,27 +4,25 @@
   margin: 0;
   padding: 0;
 }
-.modal {
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-color: white;
-  /* position: fixed; */
-}
-.modal-content {
-  border: 1px solid gray;
-  margin: 0 auto;
-  /* padding: 10px; */
-  background-color: rgba(0, 0, 0, 0.3);
 
-  width: 100%;
-  height: 100vh;
-  z-index: 10;
+.modal-backdrop {
   position: fixed;
   top: 0;
-  display: grid;
-  place-items: center;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensure the modal backdrop covers the full screen */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible; /* Ensure it is visible */
 }
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
 form {
   background-color: white;
   padding: 20px;
